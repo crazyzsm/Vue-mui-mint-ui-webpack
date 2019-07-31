@@ -1,7 +1,7 @@
 <template>
    <div class='app-container'>
       <!-- 顶部 -->
-     <mt-header fixed title="一个正经的商城"></mt-header>
+     <mt-header fixed title="便民生活"></mt-header>
       <!-- 主题信息 -->
 	    <transition>
 			<router-view></router-view>
@@ -18,8 +18,10 @@
 				<span class="mui-tab-label">搜索</span>
 			</router-link>
 			<router-link class="mui-tab-item" to="/cart">
-				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">9</span></span>
-				<span class="mui-tab-label">购物车</span>
+				<span class="mui-icon-extra mui-icon-extra-heart">
+					<!-- <span class="mui-badge">9</span> -->
+					</span>
+				<span class="mui-tab-label float">收藏</span>
 			</router-link>
 			<router-link class="mui-tab-item" to="/account">
 				<span class="mui-icon mui-icon-person-filled"></span>
@@ -55,6 +57,15 @@ header{
 .v-enter-active,
 .v-leave-active {
   transition: all 0.5s ease;
+}
+.glyphicon{
+	font-size: 25px
+}
+.float{
+	font-size: 12px;
+	display: block;    /*设置为块级元素*/
+	margin-top: 0px;
+	padding-bottom: 0px;
 }
 
 </style>
