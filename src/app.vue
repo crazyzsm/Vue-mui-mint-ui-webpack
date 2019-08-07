@@ -1,7 +1,7 @@
 <template>
    <div class='app-container'>
       <!-- 顶部 -->
-     <mt-header fixed title="便民生活"></mt-header>
+     <mt-header fixed title="Vue项目练手"></mt-header>
       <!-- 主题信息 -->
 	    <transition>
 			<router-view></router-view>
@@ -41,6 +41,7 @@ header{
 .app-container {
   padding-top: 40px;
   overflow-x: hidden;
+  padding-bottom: 50px;
 }
 
 .v-enter {

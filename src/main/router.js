@@ -4,10 +4,11 @@ import account from '../components/account.vue'
 import search from '../components/search.vue'
 import cart from '../components/cart.vue'
 import home from '../components/home.vue'
-import music from '../components/childcomponents/music.vue'
-import image from '../components/childcomponents/image.vue'
-import video from '../components/childcomponents/video.vue'
-import cloud from '../components/childcomponents/cloud.vue'
+import music from '../components/music.vue'
+import image from '../components/image.vue'
+import video from '../components/video.vue'
+import news from '../components/news.vue'
+import newsinfo from '../components/childcomponents/newsinfo.vue'
 
 
 var router=new VueRouter({
@@ -20,7 +21,8 @@ var router=new VueRouter({
         {path:'/music',component:music},
         {path:'/image',component:image},
         {path:'/video',component:video},
-        {path:'/cloud',component:cloud},
+        {path:'/news',component:news},
+        {path:'/news/newsinfo/',component:newsinfo}
     ],
     linkActiveClass:'mui-active'  //当组件激活时应用的类，如果不修改的话，默认的受router-link-active
 })

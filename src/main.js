@@ -17,6 +17,7 @@ Vue.component(SwipeItem.name, SwipeItem);
 
 Vue.use(VueRouter)  //注册vuerouter
 Vue.use(VueResource)  //注册vueresource
+Vue.http.options.root='https://api.apiopen.top'
 
 
 Vue.component(Header.name,Header)
