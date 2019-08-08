@@ -14,6 +14,7 @@
     </div>
 </template>
 <script>
+ import {Toast} from "mint-ui"
 export default {
    data(){
        return {
@@ -29,7 +30,7 @@ methods:{
             if(result.body.code===200){
                 console.log("成功")
             }else{
-                console.log("失败")
+               Toast("失败")
             }
         })
     }

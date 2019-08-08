@@ -5,7 +5,16 @@
 </template>
 <script>
 export default {
-    
+    data(){
+        return {
+            musicList:[]
+        }
+    },
+    methods:{
+        getMusic(){
+            this.$http.post
+        }
+    }
 }
 </script>
 <style scoped>
