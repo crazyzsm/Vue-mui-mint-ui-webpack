@@ -4,7 +4,8 @@
      <mt-header fixed title="Vue项目练手"></mt-header>
       <!-- 主题信息 -->
 	    <transition>
-			<router-view></router-view>
+			<!-- 组件渲染页面入口 -->
+			<router-view></router-view>  
 		</transition>
       <!-- 底部 -->
       <nav class="mui-bar mui-bar-tab">

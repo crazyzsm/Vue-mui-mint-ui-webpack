@@ -2,16 +2,20 @@
     <div>
        <ul class="mui-table-view mui-grid-view">
 		        <li class="mui-table-view-cell mui-media mui-col-xs-6" v-for="item in imageList" :key="item.id">
-		            <router-link :to="'/image/imageinfo/'+item.id" class="text-class">
+		          <!-- 本该是a链接的位置替换成了div，添加了点击事件goImage -->
+                  <!-- 这里为了能够将图片页面详细的显示出来，所以必须要将page参数，作为url传递出去 -->
+                    <div  class="text-class" @click="goImage(item.id,page)">
 		                <img class="mui-media-object" :src="item.img">
-		                <div class="mui-media-body">创建时间：{{item.time}}</div></router-link>
+		                <div class="mui-media-body">创建时间：{{item.time}}</div>
+                    </div>
                 </li>
 		    </ul>
+            <hr>
             <div class="button-container">
-                <button type="button" class="glyphicon glyphicon-chevron-left  mui-btn mui-btn-primary" @click="getPrePage">
+                <button type="button" class="mui-icon mui-icon-back  mui-btn mui-btn-primary" @click="getPrePage">
 		            上一页
 		        </button>
-                 <button type="button" class="glyphicon glyphicon-chevron-right mui-btn mui-btn-primary" @click="getNextPage">
+                 <button type="button" class="mui-icon mui-icon-forward mui-btn mui-btn-primary" @click="getNextPage">
 		            下一页
 		        </button>
             </div>
@@ -29,7 +33,7 @@ export default {
     },
     methods:{
         getImage(){
-            this.$http.post('getImages',{page:this.page,count:10},{emulateJSON:true}).then(result=>{
+            this.$http.post('https://api.apiopen.top/getImages',{page:this.page,count:10},{emulateJSON:true}).then(result=>{
                 if(result.body.code===200){
                     this.imageList=result.body.result
                 }else{
@@ -39,7 +43,7 @@ export default {
         },
         getNextPage(){
             this.page=this.page+1;
-              this.$http.post('getImages',{page:this.page,count:10},{emulateJSON:true}).then(result=>{
+              this.$http.post('https://api.apiopen.top/getImages',{page:this.page,count:10},{emulateJSON:true}).then(result=>{
                 if(result.body.code===200){
                     this.imageList=result.body.result
                 }else{
@@ -53,13 +57,17 @@ export default {
                 return { }
             }
             this.page=this.page-1;
-              this.$http.post('getImages',{page:this.page,count:10},{emulateJSON:true}).then(result=>{
+              this.$http.post('https://api.apiopen.top/getImages',{page:this.page,count:10},{emulateJSON:true}).then(result=>{
                 if(result.body.code===200){
                     this.imageList=result.body.result
                 }else{
                    Toast("失败")
                 }
             })
+        },
+        goImage(id,page){
+            // name在router.js中定义，params用于传递参数
+            this.$router.push({name:'ImageInfo',params:{id:id,page:page}})
         }
     },
     created(){
@@ -77,7 +85,7 @@ export default {
     justify-content: space-between;
 }
 .mui-btn{
-    height: 30px;
     margin-bottom: 10px
 }
+
 </style>

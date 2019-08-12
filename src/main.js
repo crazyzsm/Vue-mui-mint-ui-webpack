@@ -12,12 +12,14 @@ import { Swipe, SwipeItem } from 'mint-ui';  //轮播图组件的引用
 import VueResource from 'vue-resource'   //引用vue-rousource，可以获取数据，类似Ajax
 import 'bootstrap/dist/css/bootstrap.css'  //引入bootstrap
 
+
+
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 
+
 Vue.use(VueRouter)  //注册vuerouter
 Vue.use(VueResource)  //注册vueresource
-Vue.http.options.root='https://api.apiopen.top'   //设置访问的根路径
 
 
 Vue.component(Header.name,Header)

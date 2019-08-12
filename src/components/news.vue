@@ -12,11 +12,12 @@
 				</li>
 
 			</ul>
+            <hr>
             <div class="button-container">
-                <button type="button" class="glyphicon glyphicon-chevron-left  mui-btn mui-btn-primary" @click="getPrePage">
+                <button type="button" class="mui-icon mui-icon-back  mui-btn mui-btn-primary" @click="getPrePage">
 		            上一页
 		        </button>
-                 <button type="button" class="glyphicon glyphicon-chevron-right mui-btn mui-btn-primary" @click="getNextPage">
+                 <button type="button" class="mui-icon mui-icon-forward mui-btn mui-btn-primary" @click="getNextPage">
 		            下一页
 		        </button>
             </div>
@@ -34,7 +35,7 @@ export default {
     methods:{
         getData(){
 
-            this.$http.post('getWangYiNews',{page:this.page,count:'20'},{emulateJSON:true}).then(result=>{
+            this.$http.post('https://api.apiopen.top/getWangYiNews',{page:this.page,count:'20'},{emulateJSON:true}).then(result=>{
                 if(result.body.code===200){
                 this.newsList=result.body.result
                 }else{
@@ -44,7 +45,7 @@ export default {
         },
         getNextPage(){
             this.page=this.page+1;
-            this.$http.post('getWangYiNews',{page:this.page,count:'20'},{emulateJSON:true}).then(result=>{
+            this.$http.post('https://api.apiopen.top/getWangYiNews',{page:this.page,count:'20'},{emulateJSON:true}).then(result=>{
             if(result.body.code===200){
                 this.newsList=result.body.result
             }else{
@@ -58,7 +59,7 @@ export default {
                 return { }
             }
             this.page=this.page-1;
-                this.$http.post('getWangYiNews',{page:this.page,count:'20'},{emulateJSON:true}).then(result=>{
+                this.$http.post('https://api.apiopen.top/getWangYiNews',{page:this.page,count:'20'},{emulateJSON:true}).then(result=>{
                 if(result.body.code===200){
                     this.newsList=result.body.result
                 }else{
@@ -77,9 +78,5 @@ export default {
     display: flex;
     justify-content: space-between;
 }
-.mui-btn{
-    height: 30px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-}
+
 </style>

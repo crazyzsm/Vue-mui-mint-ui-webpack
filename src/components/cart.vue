@@ -11,9 +11,7 @@ export default {
        }
 },
 methods:{
-    getImage(){
-        
-    }
+    
 } 
 }
 </script>
