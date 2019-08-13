@@ -11,6 +11,8 @@ import './lib/fonts/mui-icons-extra.ttf'  //引入字体
 import { Swipe, SwipeItem } from 'mint-ui';  //轮播图组件的引用
 import VueResource from 'vue-resource'   //引用vue-rousource，可以获取数据，类似Ajax
 import 'bootstrap/dist/css/bootstrap.css'  //引入bootstrap
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css';
 
 
 
@@ -18,6 +20,7 @@ Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 
 
+Vue.use(ElementUI);
 Vue.use(VueRouter)  //注册vuerouter
 Vue.use(VueResource)  //注册vueresource
 

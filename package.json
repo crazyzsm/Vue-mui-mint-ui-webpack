@@ -39,6 +39,7 @@
   "dependencies": {
     "babel-plugin-component": "^1.1.1",
     "bootstrap": "^3.3.7",
+    "element-ui": "^2.11.1",
     "mint-ui": "^2.2.13",
     "popper.js": "^1.14.7",
     "qs.js": "^0.1.12",

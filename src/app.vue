@@ -43,6 +43,7 @@ header{
   padding-top: 40px;
   overflow-x: hidden;
   padding-bottom: 50px;
+  height: 100%;
 }
 
 .v-enter {

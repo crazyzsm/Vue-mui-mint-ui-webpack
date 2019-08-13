@@ -1,5 +1,6 @@
 <template>
     <div>
+        <lunbotu :lunbotuList="lunbotuList"></lunbotu>
        <ul class="mui-table-view mui-grid-view">
 		        <li class="mui-table-view-cell mui-media mui-col-xs-6" v-for="item in imageList" :key="item.id">
 		          <!-- 本该是a链接的位置替换成了div，添加了点击事件goImage -->
@@ -24,10 +25,12 @@
 </template>
 <script>
 import {Toast} from "mint-ui"
+import lunbotu from './lunbotu.vue'
 export default {
     data(){
         return {
             imageList:[],
+            lunbotuList:[],
             page:1
         }
     },
@@ -36,6 +39,9 @@ export default {
             this.$http.post('https://api.apiopen.top/getImages',{page:this.page,count:10},{emulateJSON:true}).then(result=>{
                 if(result.body.code===200){
                     this.imageList=result.body.result
+                    for(let i=0;i<3;i++){
+                        this.lunbotuList=this.lunbotuList.concat(result.body.result[i].img)
+                    }
                 }else{
                    Toast("失败")
                 }
@@ -72,6 +78,9 @@ export default {
     },
     created(){
         this.getImage();
+    },
+    components:{
+        lunbotu
     }
 }
 </script>

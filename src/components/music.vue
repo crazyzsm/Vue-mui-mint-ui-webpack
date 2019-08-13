@@ -1,5 +1,6 @@
 <template>
     <div>
+        <lunbotu :lunbotuList="lunbotuList"></lunbotu>
        <div class="mui-card" v-for="item in musicList" :key="item.id">
 				<div class="mui-card-header mui-card-media">
 					<img :src="item.creator.avatarUrl">
@@ -30,18 +31,27 @@
 </template>
 <script>
 import {Toast} from 'mint-ui'
+import lunbotu from './lunbotu.vue'   //引入相关的轮播图子组件
 export default {
     data(){  
         return {
             musicList:[],
+            lunbotuList:[],
             page:0
         }
+    },
+    components:{   //在父组件的components中定义要引用的子组件名称
+      lunbotu
     },
     methods:{
         getMusic(){
                 this.$http.post('https://v1.itooi.cn/netease/songList/hot?cat=%E5%85%A8%E9%83%A8&pageSize=20',{page:this.page},{emulateJSON:true}).then(result=>{
                 if(result.body.code===200){
                     this.musicList=result.body.data;
+                    for(let i=0;i<3;i++){
+                      this.lunbotuList= this.lunbotuList.concat(result.body.data[i].coverImgUrl)                   
+                       }
+                    
                 }else{
                     console.log("失败")
                 }
