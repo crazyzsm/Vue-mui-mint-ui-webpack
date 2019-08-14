@@ -1,6 +1,6 @@
 <template>
     <div>
-        <lunbotu :lunbotuList="lunbotuList"></lunbotu>
+        <lunbotu :lunbotuList="lunbotuList" :isfull="false"></lunbotu>
        <ul class="mui-table-view mui-grid-view">
 		        <li class="mui-table-view-cell mui-media mui-col-xs-6" v-for="item in imageList" :key="item.id">
 		          <!-- 本该是a链接的位置替换成了div，添加了点击事件goImage -->

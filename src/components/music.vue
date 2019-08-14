@@ -1,6 +1,6 @@
 <template>
     <div>
-        <lunbotu :lunbotuList="lunbotuList"></lunbotu>
+        <lunbotu :lunbotuList="lunbotuList" :isfull="true"></lunbotu>
        <div class="mui-card" v-for="item in musicList" :key="item.id">
 				<div class="mui-card-header mui-card-media">
 					<img :src="item.creator.avatarUrl">
