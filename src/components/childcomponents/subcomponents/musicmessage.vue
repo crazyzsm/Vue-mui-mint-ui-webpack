@@ -2,14 +2,17 @@
   <div class="music-container">
     <div class="music-body">
       <el-container>
-        <el-header>{{musiclist.title}}</el-header>
+        <el-header>
+          {{musiclist.title}}
+        </el-header>
         <el-container>
-          <el-aside width="200px">歌曲信息</el-aside>
           <el-container>
-            <el-main height="500px">歌词显示</el-main>
+            <el-main height="500px">
+              <img :src="musiclist.pic" style="width:100%;height:100%">
+            </el-main>
             <el-footer height="100px">
               <div class="music-play">
-                <aplayer :music="musiclist" showLrc listMaxHeight="100%"></aplayer>
+                <aplayer :music="musiclist" showLrc style="width:100%"></aplayer>
               </div>
             </el-footer>
           </el-container>
@@ -44,12 +47,18 @@ export default {
         if (result.body.code === 200) {
           this.musiclist.title = result.body.data.songs[0].name;
           this.musiclist.author = result.body.data.songs[0].ar[0].name;
+          this.musicMessage=result.body.data.songs
           console.log("成功");
         } else {
           console.log("失败");
         }
       });
-    }
+    },
+    // getMusicLrc(){
+    //   this.$http.get("https://v1.itooi.cn/netease/lrc?id=1324016837").then(result=>{
+    //    this.musicLrc=result.body
+    //   })
+    // }
   },
   created() {
     var _this = this;
@@ -58,6 +67,7 @@ export default {
     _this.musiclist.pic = "https://v1.itooi.cn/netease/pic?id=" + _this.id;
     _this.musiclist.lrc = "https://v1.itooi.cn/netease/lrc?id=" + _this.id;
     _this.getMusicMessage();
+    // _this.getMusicLrc();
   },
   components: {
     aplayer: aplayer
@@ -65,12 +75,23 @@ export default {
 };
 </script>
 <style scoped>
-.el-header,
-.el-footer {
-  background-color: #b3c0d1;
+.el-header{
+  background-color: rgb(189, 184, 184);
   color: #333;
   text-align: center;
   line-height: 60px;
+  font-size:20px;
+  padding-left:0;
+  padding-right: 0;
+}
+.el-footer {
+  background-color: #4481d1;
+  color: #333;
+  text-align: center;
+  line-height: 60px;
+  font-size:20px;
+  padding-left:0;
+  padding-right: 0;
 }
 
 .el-aside {
@@ -85,6 +106,8 @@ export default {
   color: #333;
   text-align: center;
   line-height: 160px;
+  padding-left:0;
+  padding-right: 0;
 }
 
 body > .el-container {
@@ -103,6 +126,7 @@ body > .el-container {
     width: 100%;
     height: 100%;
 }
+
 
 </style>
 

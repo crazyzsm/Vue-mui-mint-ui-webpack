@@ -11,11 +11,7 @@
 				<div class="mui-card-content">
 					<router-link :to="'/music/musicinfo/'+id+'/'+item.id"><img :src="item.album.picUrl" alt="" width="100%"></router-link>
 				</div>
-				<div class="mui-card-footer">
-					<a class="mui-card-link">Like</a>
-					<a class="mui-card-link">Comment</a>
-					<a class="mui-card-link">Read more</a>
-				</div>
+			
 			</div>
     </div>
 </template>

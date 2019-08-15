@@ -34,7 +34,6 @@ export default {
   }
   img{
     height: 100%;
-    width: 50%;
     /* width: 100% */
   }
   .full{
