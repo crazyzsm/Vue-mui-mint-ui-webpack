@@ -7,18 +7,18 @@
 	  <mt-swipe-item>4</mt-swipe-item>
       </mt-swipe>
         <ul class="mui-table-view mui-grid-view mui-grid-9">
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/music">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><div @click="getMusic">
 		                    <span class="glyphicon glyphicon-music"></span>
-		                    <div class="mui-media-body">音乐</div></router-link></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/image">
+		                    <div class="mui-media-body">音乐</div></div></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><div @click="getImage()">
 		                    <span class="glyphicon glyphicon-picture"></span>
-		                    <div class="mui-media-body">图片</div></router-link></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/news">
+		                    <div class="mui-media-body">图片</div></div></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><div @click="getNews()">
 		                    <span class="glyphicon glyphicon-list-alt"></span>
-		                    <div class="mui-media-body">新闻</div></router-link></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/video">
+		                    <div class="mui-media-body">新闻</div></div></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><div @click="getVideo()">
 		                    <span class="glyphicon glyphicon-film"></span>
-		                    <div class="mui-media-body">视频</div></router-link></li>
+		                    <div class="mui-media-body">视频</div></div></li>
 		         
 		       
 				</ul>
@@ -34,6 +34,20 @@ export default {
      return {
 		 lunbotuList:[]
 	 }
+	},
+	methods:{
+		getNews(){
+			this.$router.push({path:'news'})
+		},
+		getImage(){
+			this.$router.push({path:'image'})
+		},
+		getMusic(){
+			this.$router.push({path:'music'})
+		},
+		getVideo(){
+			this.$router.push({path:'video'})
+		}
 	}
 }
 </script>

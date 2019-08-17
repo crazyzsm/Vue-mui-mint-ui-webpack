@@ -10,7 +10,9 @@
 					</div>
 				</div>
 				<div class="mui-card-content">
-					<router-link :to="'/music/musicinfo/'+item.id"><img :src="item.coverImgUrl" alt="" width="100%"></router-link>
+					<div @click="getMusicUrl(item.id)">    
+                    <img :src="item.coverImgUrl" alt="" width="100%">
+                    </div>
 				</div>
 				<div class="mui-card-footer">
 					<a class="mui-card-link">{{item.playCount}}次播放</a>
@@ -83,6 +85,9 @@ export default {
                     console.log("失败")
                 }
                 })
+        },
+        getMusicUrl(id){
+            this.$router.push({name:"musicInfo",params:{id:id}})
         }
     },
     created(){

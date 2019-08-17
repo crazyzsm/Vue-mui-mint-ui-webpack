@@ -9,7 +9,7 @@
 					</div>
 				</div>
 				<div class="mui-card-content">
-					<router-link :to="'/music/musicinfo/'+id+'/'+item.id"><img :src="item.album.picUrl" alt="" width="100%"></router-link>
+					<div @click="getMusicMessageUrl(item.id)"><img :src="item.album.picUrl" alt="" width="100%"></div>
 				</div>
 			
 			</div>
@@ -33,6 +33,9 @@ methods:{
                 console.log("失败")
             }
         })
+    },
+    getMusicMessageUrl(id){
+        this.$router.push({name:'musicMessage',params:{id:id}})
     }
 } ,
 created(){

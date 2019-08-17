@@ -106,8 +106,7 @@ export default {
   color: #333;
   text-align: center;
   line-height: 160px;
-  padding-left:0;
-  padding-right: 0;
+  padding:0;
 }
 
 body > .el-container {

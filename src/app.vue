@@ -18,7 +18,7 @@
 				<span class="mui-icon mui-icon-search"></span>
 				<span class="mui-tab-label">搜索</span>
 			</router-link>
-			<router-link class="mui-tab-item" to="/cart">
+			<router-link class="mui-tab-item" to="/like">
 				<span class="mui-icon-extra mui-icon-extra-heart">
 					<!-- <span class="mui-badge">9</span> -->
 					</span>
