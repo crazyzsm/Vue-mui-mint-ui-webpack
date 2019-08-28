@@ -12,6 +12,10 @@
 ####在编写音乐详情组件时，路由地址显示正常，但是显示"Cannot read property '$createElement' of undefined"错误
 ####形成原因是：在router.js中编写的路由规则{path:'/music/musicinfo/:id/:id',components:musicmessage}  component多了一个s
 
+#     wbepack组件的加载器配置问题，使用vue-loader和vue-template-compiler加载.vue文件发生：vue-loader was used without the        corresponding plugin. Make sure to include VueLoaderPlugin in your webpack config.错误
+###形成原因：vue-loader的15.*版本之后，都需要在伴生VueLoaderPlugin
+###解决方法：在webpack.config.js下的Plugins下添加一个配置对象 new VueLoaderPlugin()  或者安装vue-loader 15.*以下的版本，例如 cnpm i vue-loader@14.x.x
+
 ####vue-aplayer的使用中url必须要在data中初始化才能继续使用，否则会出现Invalid prop: custom validator check failed for prop "music"错误
 ####在data中提前指定url的路径，使用id:this.$route.params.id来获取id，将地址与id拼接，但是这时候又出现了错误，this.id显示的值为：undefined
 ####这就涉及到了我下面遇到得另一个问题了，this的指向问题
@@ -32,3 +36,4 @@
 ###相关代码：<lunbotu :lunbotuList="lunbotuList" :isfull="false"></lunbotu>---image,isfull是在轮播中定义的属性，
 ###          <img  :src="item" :class="{'full':isfull}">---lunbotu,vue通过v-bind，决定full样式是否启用
 ###  .full{width:100%}
+
