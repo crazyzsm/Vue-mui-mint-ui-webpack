@@ -5,6 +5,7 @@
 		        <li class="mui-table-view-cell mui-media mui-col-xs-6" v-for="item in imageList" :key="item.id">
 		          <!-- 本该是a链接的位置替换成了div，添加了点击事件goImage -->
                   <!-- 这里为了能够将图片页面详细的显示出来，所以必须要将page参数，作为url传递出去 -->
+                    <heard :likeobj="item"></heard>
                     <div  class="text-class" @click="goImage(item.id,page)">
 		                <img class="mui-media-object" :src="item.img">
 		                <div class="mui-media-body">创建时间：{{item.time}}</div>
@@ -26,6 +27,7 @@
 <script>
 import {Toast} from "mint-ui"
 import lunbotu from './lunbotu.vue'
+import heard from './childcomponents/heard.vue'
 export default {
     data(){
         return {
@@ -80,7 +82,8 @@ export default {
         this.getImage();
     },
     components:{
-        lunbotu
+        lunbotu,
+        heard
     }
 }
 </script>

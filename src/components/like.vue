@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>收藏</h1>
+        <h1>{{$store.getters.getLikeObj}}</h1>
     </div>
 </template>
 <script>

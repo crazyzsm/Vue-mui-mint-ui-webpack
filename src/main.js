@@ -13,6 +13,7 @@ import VueResource from 'vue-resource'   //引用vue-rousource，可以获取数
 import 'bootstrap/dist/css/bootstrap.css'  //引入bootstrap
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
+import Vuex from 'vuex'
 
 
 
@@ -20,14 +21,31 @@ Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 
 
+Vue.use(Vuex);
 Vue.use(ElementUI);
 Vue.use(VueRouter)  //注册vuerouter
 Vue.use(VueResource)  //注册vueresource
 
 
+const store=new Vuex.Store({    //使用Vuex管理组件的状态
+   state:{   //数据
+      likeObj:{ }
+   },
+  mutations:{   //方法
+   addLikeObj(state,obj){
+      state.likeObj=obj;
+   }
+  },
+  getters:{    //computed
+     getLikeObj(state){
+        return state.likeObj.id;
+     }
+  }
+})
 Vue.component(Header.name,Header)
 var vm=new Vue({
     el:'#app',
     render:c=>c(app),  //渲染app
-   router
+    router,
+    store
 })
