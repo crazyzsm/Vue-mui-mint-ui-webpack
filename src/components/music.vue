@@ -10,7 +10,8 @@
 					</div>
 				</div>
 				<div class="mui-card-content">
-					<div @click="getMusicUrl(item.id)">    
+					<div @click="getMusicUrl(item.id)">
+                         
                     <img :src="item.coverImgUrl" alt="" width="100%">
                     </div>
 				</div>

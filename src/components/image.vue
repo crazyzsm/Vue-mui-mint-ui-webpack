@@ -4,7 +4,9 @@
        <ul class="mui-table-view mui-grid-view">
 		        <li class="mui-table-view-cell mui-media mui-col-xs-6" v-for="item in imageList" :key="item.id">
 		          <!-- 本该是a链接的位置替换成了div，添加了点击事件goImage -->
-                  <!-- 这里为了能够将图片页面详细的显示出来，所以必须要将page参数，作为url传递出去 -->
+                  <!-- 这里为了能够将图片页面详细的显示出来，所以必须要将page参数，作为url传递出去 
+                       现在有了一个新的思路，不用将page通过url传递过去，而是修改vuex中的page的值，在进入图片页面时，只需要去取vuex中的page就行了
+                  -->
                     <heard :likeobj="item"></heard>
                     <div  class="text-class" @click="goImage(item.id,page)">
 		                <img class="mui-media-object" :src="item.img">
